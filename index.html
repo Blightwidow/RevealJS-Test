@@ -93,6 +93,13 @@
 				<section>
 					<q>This is just a quote</q>
 				</section>
+				<section>
+					<canvas data-chart="line">
+						Month, January, February, March, April, May, June, July
+						My first dataset, 65, 59, 80, 81, 56, 55, 40
+						My second dataset, 28, 48, 40, 19, 86, 27, 90
+					</canvas>
+				</section>
 				<section data-markdown>
 					<script type="text/template">
 						## Thank you for you attention
@@ -117,8 +124,29 @@
 					{ src: 'reveal/plugin/markdown/marked.js' },
 					{ src: 'reveal/plugin/markdown/markdown.js' },
 					{ src: 'reveal/plugin/notes/notes.js', async: true },
-					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
+					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal/plugin/chart/Chart.min.js' },               
+					{ src: 'reveal/plugin/chart/csv2chart.js' }
+				],
+				chart: {
+				      defaults: { 
+					  global: { 
+					      title: { fontColor: "#FFF" }, 
+					  }, 
+					    legend: {
+						labels: { fontColor: "#FFF" },
+					    },
+					    scale: { 
+						scaleLabel: { fontColor: "#FFF" }, 
+						gridLines: { color: "#FFF", zeroLineColor: "#FFF" }, 
+						ticks: { fontColor: "#FFF" }, 
+					    } 
+					},
+					line: { backgroundColor: [ "rgba(20,220,220,.4)" , "rgba(220,120,120,.4)", "rgba(20,120,220,.4)" ], borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+				    },
 			});
 			// Shows the slide number using default formatting
 			Reveal.configure({  
